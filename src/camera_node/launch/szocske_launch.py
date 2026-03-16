@@ -18,7 +18,7 @@ def generate_launch_description():
     config_dir = os.path.join(get_package_share_directory('camera_node'), 'config')
     yaml_file_path = os.path.join(config_dir, 'szocske.yaml')
 
-    camera_E75894 = Node(
+    '''camera_E75894 = Node(
         name='camera_E75894',
         package='camera_aravis2',
         executable='camera_driver_uv',
@@ -41,7 +41,7 @@ def generate_launch_description():
                     }
                 }
             ]
-    )
+    )'''
 
     camera_E7589C = Node(
         name='camera_E7589C',
@@ -99,4 +99,4 @@ def generate_launch_description():
         output='screen'
     )
     
-    return launch.LaunchDescription([camera_E75894, camera_E7589C, camera_E7588B, furulya])
+    return launch.LaunchDescription([ camera_E7589C, camera_E7588B, furulya])
