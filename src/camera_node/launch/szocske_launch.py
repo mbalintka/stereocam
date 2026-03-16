@@ -43,8 +43,9 @@ def generate_launch_description():
             ]
     )'''
 
-    camera_E7589C = Node(
+    camera_left = Node(
         name='camera_E7589C',
+        namespace='left',
         package='camera_aravis2',
         executable='camera_driver_uv',
         output='screen',
@@ -68,8 +69,9 @@ def generate_launch_description():
             ]
     )
 
-    camera_E7588B = Node(
+    camera_right = Node(
         name='camera_E7588B',
+        namespace='right',
         package='camera_aravis2',
         executable='camera_driver_uv',
         output='screen',
@@ -99,4 +101,4 @@ def generate_launch_description():
         output='screen'
     )
     
-    return launch.LaunchDescription([ camera_E7589C, camera_E7588B, furulya])
+    return launch.LaunchDescription([ camera_left, camera_right])
