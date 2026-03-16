@@ -1,0 +1,7 @@
+# .gitignore fájl a ROS 2 és Python fájlok kizárásához
+build/
+install/
+log/
+.vscode/
+__pycache__/
+*.pyc
