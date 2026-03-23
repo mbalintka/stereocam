@@ -69,6 +69,19 @@ def generate_launch_description():
             ]
     )
 
+    # BAL KAMERA RECTIFY NODE (Kiegyenesítés)
+    rectify_left = Node(
+        package='image_proc',
+        executable='rectify_node',
+        name='rectify_node_left',
+        namespace='left/camera_E7589C',
+        output='screen',
+        # Az 'image' bemenetet rákötjük a nyers képre, a kimenet automatikusan 'image_rect' lesz
+        remappings=[
+            ('image', 'image_raw')
+        ]
+    )
+
     camera_right = Node(
         name='camera_driver',
         namespace='right/camera_E7588B',
