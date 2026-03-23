@@ -82,6 +82,18 @@ def generate_launch_description():
         ]
     )
 
+    # JOBB KAMERA RECTIFY NODE (Kiegyenesítés)
+    rectify_right = Node(
+        package='image_proc',
+        executable='rectify_node',
+        name='rectify_node_right',
+        namespace='right/camera_E7588B',
+        output='screen',
+        remappings=[
+            ('image', 'image_raw')
+        ]
+    )
+
     camera_right = Node(
         name='camera_driver',
         namespace='right/camera_E7588B',
