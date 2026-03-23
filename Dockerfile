@@ -26,6 +26,7 @@ RUN apt-get install -y ros-humble-camera-aravis2
 RUN apt-get install -y ros-humble-rosbag2-storage-mcap
 RUN apt-get install -y ros-humble-stereo-image-proc
 RUN apt-get install -y ros-humble-camera-calibration
+RUN apt-get install -y ros-humble-image-proc
 
 RUN echo "source /opt/ros/humble/setup.bash" >> ~/.bashrc
 
