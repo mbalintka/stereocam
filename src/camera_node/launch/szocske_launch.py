@@ -44,8 +44,8 @@ def generate_launch_description():
     )'''
 
     camera_left = Node(
-        name='camera_E7589C',
-        namespace='left',
+        name='camera_driver',
+        namespace='left/camera_E7589C',
         package='camera_aravis2',
         executable='camera_driver_uv',
         output='screen',
@@ -70,8 +70,8 @@ def generate_launch_description():
     )
 
     camera_right = Node(
-        name='camera_E7588B',
-        namespace='right',
+        name='camera_driver',
+        namespace='right/camera_E7588B',
         package='camera_aravis2',
         executable='camera_driver_uv',
         output='screen',
@@ -93,6 +93,21 @@ def generate_launch_description():
                     }
                 }
             ]
+    )
+
+    # A stereo_image_proc most már az új névterekről olvassa az adatokat
+    stereo_disparity = Node(
+        package='stereo_image_proc',
+        executable='disparity_node',
+        output='screen',
+        parameters=[{'approximate_sync': True}],
+        # Újra kell mappolnunk, hogy a node megtalálja az egyedi nevű kamerákat
+        remappings=[
+            ('left/image_rect', '/left/camera_E7589C/image_rect'),
+            ('left/camera_info', '/left/camera_E7589C/camera_info'),
+            ('right/image_rect', '/right/camera_E7588B/image_rect'),
+            ('right/camera_info', '/right/camera_E7588B/camera_info')
+        ]
     )
 
     # recorder ( ez veszi fel a topicokat csak a recorder az angolul furulya es az vicces )
